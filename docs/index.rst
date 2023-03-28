@@ -1,0 +1,5 @@
+==============
+edi.ellaconfig
+==============
+
+User documentation
