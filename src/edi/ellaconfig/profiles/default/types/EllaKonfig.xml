@@ -25,10 +25,11 @@
   </property>
   <!-- Schema, class and security -->
   <property name="add_permission">edi.ellaconfig.AddEllaKonfig</property>
-  <property name="klass">plone.dexterity.content.Container</property>
-  <property name="model_file">edi.ellaconfig.content:ella_konfig.xml</property>
+  <property name="klass">edi.ellaconfig.content.ella_konfig.EllaKonfig</property>
+  <!--<property name="model_file">edi.ellaconfig.content:ella_konfig.xml</property>-->
+  <property name="model_file"></property>
   <property name="model_source"></property>
-  <property name="schema"></property>
+  <property name="schema">edi.ellaconfig.content.ella_konfig.IEllaKonfig</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">

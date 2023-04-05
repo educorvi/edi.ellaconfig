@@ -26,10 +26,11 @@
   </property>
   <!-- Schema, class and security -->
   <property name="add_permission">edi.ellaconfig.AddService</property>
-  <property name="klass">plone.dexterity.content.Container</property>
-  <property name="model_file">edi.ellaconfig.content:service.xml</property>
+  <property name="klass">edi.ellaconfig.content.service.Service</property>
+  <!--<property name="model_file">edi.ellaconfig.content:service.xml</property>-->
+  <property name="model_file"></property>
   <property name="model_source"></property>
-  <property name="schema"></property>
+  <property name="schema">edi.ellaconfig.content.service.IService</property>
 
   <!-- Enabled behaviors -->
   <property name="behaviors" purge="false">
