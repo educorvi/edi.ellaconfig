@@ -7,6 +7,12 @@
   <!-- -*- extra stuff goes here -*- -->
 
     <permission
+        id="edi.ellaconfig.AddService"
+        title="edi.ellaconfig: Add Service"
+    />
+
+
+    <permission
         id="edi.ellaconfig.AddEllaKonfig"
         title="edi.ellaconfig: Add EllaKonfig"
     />
