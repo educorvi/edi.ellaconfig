@@ -10,7 +10,7 @@ buildout-cache/
 develop-eggs/
 eggs/
 htmlcov/
-idea/
+.idea/
 include/
 lib/
 local/
