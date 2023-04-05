@@ -1,13 +1,56 @@
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      i18n:domain="edi.ellaconfig"
-      metal:use-macro="context/main_template/macros/master">
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="example.conference">
 <body>
-  <metal:block fill-slot="content-core">
-      <h2 i18n:translate="">Sample View</h2>
-      <p tal:content="view/msg">this gets replaced</p>
-  </metal:block>
+
+<metal:main fill-slot="main">
+  <tal:main-macro metal:define-macro="main">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div tal:replace="structure provider:plone.abovecontenttitle" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-md-9">
+          <h1 class="documentFirstHeading" tal:content="context/title" />
+          <div tal:replace="structure provider:plone.belowcontenttitle" />
+          <p class="documentDescription" tal:content="context/description" />
+          <div tal:replace="structure provider:plone.abovecontentbody" />
+          <p class="lead" tal:content="view/servicetyp"/>
+          <div tal:condition="context/serviceref">
+            <h2>Referenz</h2>
+            <a tal:attributes="href context/serviceref/to_object/absolute_url" tal:content="context/serviceref/to_object/title"/>
+          </div>
+	  <div class="mt-3" tal:condition="view/buttons">
+	    <h2>Buttons</h2>
+	    <div class="btn-group mt-3" role="group" tal:condition="view/buttons">
+              <a role="button" tal:repeat="btn view/buttons" tal:attributes="href btn/url;class btn/class;title btn/name" tal:content="btn/title"/>
+            </div>
+	  </div>
+	  <div class="mt-3" tal:condition="view/services">
+            <h2>Services der Gruppe</h2>
+              <ul class="list-group">
+                <li tal:repeat="service view/services" class="list-group-item d-flex justify-content-between align-items-center">
+                  <a tal:attributes="href service/url" tal:content="string:${service/title} (${service/typ})"/>
+                </li>
+	      </ul>
+	  </div>
+	  <blockquote class="bg-danger text-white p-1"  tal:condition="python:view.group and not view.services">
+            <p>Zu dieser dieser Gruppe müssen noch Services hinzugefügt werden.</p>
+	  </blockquote>
+          <div tal:replace="structure provider:plone.belowcontentbody" />
+        </div>
+        <div class="col-12 col-md-3">
+        </div>
+      </div>
+    </div>
+  </tal:main-macro>
+</metal:main>
+
 </body>
 </html>
