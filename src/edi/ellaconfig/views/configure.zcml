@@ -8,7 +8,7 @@
 
   <browser:page
     name="ella-service-view"
-    for="Products.CMFCore.interfaces.IFolderish"
+    for="edi.ellakonfig.content.ella_config.IEllaKonfig"
     class=".ella_service_view.EllaServiceView"
     permission="zope2.View"
     />
