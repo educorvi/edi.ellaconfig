@@ -7,6 +7,13 @@
   -*- extra stuff goes here -*-
 
   <browser:page
+    name="ella-service-view"
+    for="Products.CMFCore.interfaces.IFolderish"
+    class=".ella_service_view.EllaServiceView"
+    permission="zope2.View"
+    />
+
+  <browser:page
     name="ella-view"
     for="*"
     class=".ella_view.EllaView"
