@@ -8,7 +8,7 @@
 
   <browser:page
     name="view"
-    for="Products.CMFCore.interfaces.IFolderish"
+    for="edi.ellakonfig.content.ella_konfig.IEllaKonfig"
     class=".ella_konfig_view.EllaKonfigView"
     template="ella_konfig_view.pt"
     permission="zope2.View"
