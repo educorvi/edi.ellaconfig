@@ -4,4 +4,5 @@
   <!--<object name="example_ct" meta_type="Dexterity FTI"/>-->
   <object name="EllaKonfig" meta_type="Dexterity FTI"/>
   <object name="Service" meta_type="Dexterity FTI"/>
+  <object name="Servicebutton" meta_type="Dexterity FTI"/>
 </object>

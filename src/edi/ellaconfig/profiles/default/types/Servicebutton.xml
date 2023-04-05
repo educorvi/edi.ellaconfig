@@ -1,36 +1,28 @@
 <?xml version="1.0"?>
 <object xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-    name="Service"
+    name="Servicebutton"
     meta_type="Dexterity FTI"
     i18n:domain="edi.ellaconfig">
 
   <!-- Basic properties -->
   <property
       i18n:translate=""
-      name="title">Service</property>
+      name="title">Servicebutton</property>
   <property
       i18n:translate=""
-      name="description">Service einer Ella-Konfiguration</property>
+      name="description">Ella-Servicebutton</property>
 
   <property name="allow_discussion">False</property>
-  <property name="factory">Service</property>
+  <property name="factory">Servicebutton</property>
   <property name="icon_expr"></property>
   <property name="link_target"></property>
 
   <!-- Hierarchy control -->
   <property name="global_allow">False</property>
-  <property name="filter_content_types">True</property>
-  <property name="allowed_content_types">
-    <element value="Servicebutton" />
-      <!--
-    <element value="Document" />
-    <element value="File" />
-  -->
-  </property>
   <!-- Schema, class and security -->
-  <property name="add_permission">edi.ellaconfig.AddService</property>
-  <property name="klass">plone.dexterity.content.Container</property>
-  <property name="model_file">edi.ellaconfig.content:service.xml</property>
+  <property name="add_permission">edi.ellaconfig.AddServicebutton</property>
+  <property name="klass">plone.dexterity.content.Item</property>
+  <property name="model_file">edi.ellaconfig.content:servicebutton.xml</property>
   <property name="model_source"></property>
   <property name="schema"></property>
 
@@ -55,14 +47,10 @@
     <!--<element value="plone.tableofcontents"/>-->
     <!--<element value="plone.versioning" />-->
     <!--<element value="plone.translatable" />-->
-    <!--<element value="plone.nextprevioustoggle" />-->
-    <!--<element value="plone.nextpreviousenabled" />-->
-    <!--<element value="plone.navigationroot" />-->
-    <!--<element value="plone.selectablecontrainstypes" />-->
   </property>
 
   <!-- View information -->
-  <property name="add_view_expr">string:${folder_url}/++add++Service</property>
+  <property name="add_view_expr">string:${folder_url}/++add++Servicebutton</property>
   <property name="default_view">view</property>
   <property name="default_view_fallback">False</property>
   <property name="immediate_view">view</property>
