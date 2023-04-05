@@ -8,7 +8,7 @@
 
   <browser:page
     name="ella-view"
-    for="Products.CMFCore.interfaces.IFolderish"
+    for="*"
     class=".ella_view.EllaView"
     permission="zope2.View"
     />
