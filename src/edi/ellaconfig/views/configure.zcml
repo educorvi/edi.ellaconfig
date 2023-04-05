@@ -8,7 +8,7 @@
 
   <browser:page
     name="ella-service-view"
-    for="edi.ellakonfig.content.ella_config.IEllaKonfig"
+    for="edi.ellaconfig.content.ella_konfig.IEllaKonfig"
     class=".ella_service_view.EllaServiceView"
     permission="zope2.View"
     />
@@ -22,7 +22,7 @@
 
   <browser:page
     name="view"
-    for="edi.ellakonfig.content.ella_konfig.IEllaKonfig"
+    for="edi.ellaconfig.content.ella_konfig.IEllaKonfig"
     class=".ella_konfig_view.EllaKonfigView"
     template="ella_konfig_view.pt"
     permission="zope2.View"
@@ -30,7 +30,7 @@
 
   <browser:page
     name="view"
-    for="edi.ellakonfig.content.service.IService"
+    for="edi.ellaconfig.content.service.IService"
     class=".service_view.ServiceView"
     template="service_view.pt"
     permission="zope2.View"
@@ -38,7 +38,7 @@
 
   <browser:page
     name="view"
-    for="edi.ellakonfig.content.servicebutton.IServicebutton"
+    for="edi.ellaconfig.content.servicebutton.IServicebutton"
     class=".servicebutton_view.ServicebuttonView"
     template="servicebutton_view.pt"
     permission="zope2.View"
