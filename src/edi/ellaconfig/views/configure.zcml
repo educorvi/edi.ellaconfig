@@ -8,7 +8,7 @@
 
   <browser:page
     name="view"
-    for="Products.CMFCore.interfaces.IFolderish"
+    for="edi.ellakonfig.content.servicebutton.IServicebutton"
     class=".servicebutton_view.ServicebuttonView"
     template="servicebutton_view.pt"
     permission="zope2.View"
