@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
-from edi.ellaconfig.views.examples import uischema
+# from edi.ellaconfig.views.examples import uischema
 from plone.i18n.normalizer import idnormalizer
 from plone import api as ploneapi
 import jsonlib
@@ -264,7 +264,7 @@ class EllaView(BrowserView):
                 image = '%s/@@download/image' % self.context.absolute_url()
             else:
                 image = u''
-            content = format_ella_single(title, text, image)
+            content = self.format_ella_single(title, text, image)
         else:
             obj = self.context.startseiten[0].to_object
             text = getattr(obj, 'text', u'')

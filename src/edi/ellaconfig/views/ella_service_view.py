@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from Products.Five.browser import BrowserView
-from edi.ellaconfig.views.examples import uischema
+# from edi.ellaconfig.views.examples import uischema
 from plone.i18n.normalizer import idnormalizer
 from plone import api as ploneapi
 import jsonlib
@@ -86,7 +86,7 @@ class EllaServiceView(BrowserView):
         image = getattr(pageobj, 'image', u'')
         if image:
             image = '%s/@@download/image' % pageobj.absolute_url()
-        service['text'] = format_ella_single(title, text, image)
+        service['text'] = self.format_ella_single(title, text, image)
         return service
 
     def get_ella_services(self, service):
