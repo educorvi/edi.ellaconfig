@@ -7,12 +7,6 @@
   <!-- -*- extra stuff goes here -*- -->
 
     <permission
-        id="edi.ellaconfig.AddServicebutton"
-        title="edi.ellaconfig: Add Servicebutton"
-    />
-
-
-    <permission
         id="edi.ellaconfig.AddService"
         title="edi.ellaconfig: Add Service"
     />

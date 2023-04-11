@@ -37,12 +37,12 @@
     />
 
   <browser:page
-    name="view"
-    for="edi.ellaconfig.content.servicebutton.IServicebutton"
-    class=".servicebutton_view.ServicebuttonView"
-    template="servicebutton_view.pt"
+    name="service-view"
+    for="*"
     permission="zope2.View"
-    />
+    class=".service_view.ServiceView"
+    template="service_view.pt"
+  />
 
 
 </configure>
