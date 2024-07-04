@@ -3,7 +3,7 @@ from Products.Five.browser import BrowserView
 # from edi.ellaconfig.views.examples import uischema
 from plone.i18n.normalizer import idnormalizer
 from plone import api as ploneapi
-import jsonlib
+import json
 from jinja2 import Template
 
 class EllaServiceView(BrowserView):
@@ -106,4 +106,4 @@ class EllaServiceView(BrowserView):
         if serviceobj:
             obj = serviceobj[0].getObject()
             ella_service = self.get_ella_services(obj)
-        return jsonlib.write(ella_service)
+        return json.dumps(ella_service)

@@ -6,6 +6,13 @@ from plone import api as ploneapi
 import json
 from jinja2 import Template
 
+defaulttemplate = """\
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">{{ ella_title }}</h5>
+    {{ ella_bodytext }}
+  </div>
+</div>"""
 
 class EllaView(BrowserView):
 
@@ -75,6 +82,7 @@ class EllaView(BrowserView):
         ellaservice['title'] = service.title
         ellaservice['description'] = service.description
         ellaservice['type'] = service.servicetyp
+        ellaservice['hidden'] = getattr(service, 'hidden', False)
         form = service.serviceref.to_object
         json_schema_view = ploneapi.content.get_view(name='schema-view', context=form, request=self.request)
         ellaservice['form'] = json_schema_view.__call__(localmarker=True, idtyp='id')
@@ -111,6 +119,7 @@ class EllaView(BrowserView):
         mediaservice['title'] = mediacontainer.title
         mediaservice['description'] = mediacontainer.description
         mediaservice['type'] = mediatype
+        mediaservice['hidden'] = getattr(service, 'hidden', False)
         mediaservice['textbefore'] = ''
         mediaservice['textafter'] = ''
         if mediacontainer.text:
@@ -154,6 +163,7 @@ class EllaView(BrowserView):
         ellaservice['title'] = service.title
         ellaservice['description'] = service.description
         ellaservice['type'] = service.servicetyp
+        ellaservice['hidden'] = getattr(service, 'hidden', False)
         pageobj = service.serviceref.to_object
         text = getattr(pageobj, 'text', u'')
         if text:
@@ -235,8 +245,12 @@ class EllaView(BrowserView):
         return services
 
     def format_ella_single(self, title, text, image):
-        tm = Template(self.context.bodytemplate)
-        bodytext = tm.render(ella_title=title, ella_bodytext=text, ella_image=image)
+        if image:
+            tm = Template(self.context.bodytemplate)
+            bodytext = tm.render(ella_title=title, ella_bodytext=text, ella_image=image)
+        else:
+            tm = Template(defaulttemplate)
+            bodytext = tm.render(ella_title=title, ella_bodytext=text)
         return bodytext
 
     def format_ella_startnavi(self, startseiten):

@@ -30,9 +30,11 @@ class IService(model.Schema):
 
     servicetyp = schema.Choice(title=u"Servicetyp", default='service', vocabulary=servicetyp)
 
-    serviceref = RelationChoice(title="Referenz auf das Formular (z.B. Checkliste), Seite oder Nachricht.",
+    serviceref = RelationChoice(title=u"Referenz auf das Formular (z.B. Checkliste), Seite oder Nachricht.",
                                 vocabulary='plone.app.vocabularies.Catalog',
                                 required=False)
+
+    hidden = schema.Bool(title=u"Service nicht ins Menü der PWA aufnehmen", required=False, default=False)
 
     directives.widget(
         "serviceref",
