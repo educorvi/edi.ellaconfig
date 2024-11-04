@@ -39,7 +39,7 @@ class IService(model.Schema):
         RelatedItemsFieldWidget,
         pattern_options={
             "basePath": make_relation_root_path,
-            "selectableTypes": ["Fragebogen", "Document", "News Item", "Audiocontainer", "Videocontainer"],
+            "selectableTypes": ["Form", "Document", "News Item", "Audiocontainer", "Videocontainer"],
         })
 
     @invariant

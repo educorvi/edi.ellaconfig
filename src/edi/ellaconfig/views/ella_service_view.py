@@ -3,8 +3,8 @@ from Products.Five.browser import BrowserView
 # from edi.ellaconfig.views.examples import uischema
 from plone.i18n.normalizer import idnormalizer
 from plone import api as ploneapi
-import jsonlib
 from jinja2 import Template
+import json
 
 class EllaServiceView(BrowserView):
 
@@ -49,9 +49,9 @@ class EllaServiceView(BrowserView):
         ellaservice['type'] = service.servicetyp
         form = service.serviceref.to_object
         json_schema_view = ploneapi.content.get_view(name='schema-view', context=form, request=self.request)
-        ellaservice['form'] = json_schema_view.__call__(localmarker=True)
+        ellaservice['form'] = json_schema_view.__call__()
         ui_schema_view = ploneapi.content.get_view(name='ui-schema-view', context=form, request=self.request)
-        ellaservice['ui'] = ui_schema_view.__call__(localmarker=True)
+        ellaservice['ui'] = ui_schema_view.__call__()
         buttons = service.listFolderContents(contentFilter={"portal_type" : "Servicebutton"})
         ellaservice['formactions'] = self.create_servicebuttons(buttons)
         return ellaservice
@@ -106,4 +106,4 @@ class EllaServiceView(BrowserView):
         if serviceobj:
             obj = serviceobj[0].getObject()
             ella_service = self.get_ella_services(obj)
-        return jsonlib.write(ella_service)
+        return json.dumps(ella_service)

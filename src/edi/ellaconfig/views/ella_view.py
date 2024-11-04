@@ -76,10 +76,10 @@ class EllaView(BrowserView):
         ellaservice['description'] = service.description
         ellaservice['type'] = service.servicetyp
         form = service.serviceref.to_object
-        json_schema_view = ploneapi.content.get_view(name='schema-view', context=form, request=self.request)
-        ellaservice['form'] = json_schema_view.__call__(localmarker=True, idtyp='id')
+        json_schema_view = ploneapi.content.get_view(name='json-schema-view', context=form, request=self.request)
+        ellaservice['form'] = json_schema_view.__call__()
         ui_schema_view = ploneapi.content.get_view(name='ui-schema-view', context=form, request=self.request)
-        ellaservice['ui'] = ui_schema_view.__call__(localmarker=True)
+        ellaservice['ui'] = ui_schema_view.__call__()
         buttons = service.listFolderContents(contentFilter={"portal_type": "Servicebutton"})
         ellaservice['formactions'] = self.create_servicebuttons(buttons)
         return ellaservice
