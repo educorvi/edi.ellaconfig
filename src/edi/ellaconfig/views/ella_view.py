@@ -106,7 +106,10 @@ class EllaView(BrowserView):
     def create_media_service(self, service, mediatype):
         mediaservice = dict()
         mediacontainer = service.serviceref.to_object
-        mediafiles = self.create_mediafiles(mediacontainer.getFolderContents(), mediatype)
+        brains = ploneapi.content.find(
+            context=mediacontainer, depth=1, sort_on="getObjPositionInParent"
+        )
+        mediafiles = self.create_mediafiles(brains, mediatype)
         mediaservice['name'] = mediacontainer.id
         mediaservice['title'] = mediacontainer.title
         mediaservice['description'] = mediacontainer.description
